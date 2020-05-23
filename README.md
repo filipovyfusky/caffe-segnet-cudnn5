@@ -7,20 +7,17 @@ Please refer to Alex Kendalls caffe-segnet for tutorial and a guide how to use i
 
 Since the original caffe-segnet supports just cuDNN v2, which is not supported for new pascal based GPUs, it was possible to decrease the inference time by 25 % to 35 % with caffe-segnet-cudnn5 using Titan X Pascal.
 
-I recommend to use my trained weights (CityScapes Model) for semantic segmenation of traffic scenes, which you can find in segnet model zoo: https://github.com/alexgkendall/SegNet-Tutorial/blob/master/Example_Models/segnet_model_zoo.md
+## Installation
 
-If you like to speed up SegNet even further, you can run the BN-absorber.py script. It merges the batch normalization layer into convolutional layer by modyfing its weights and biases. In doing so, it is possible to accelerate it by around 30 %. Please find BN-absorber.py in the script folder.
+Ensure you have [CUDA](https://developer.nvidia.com/cuda-toolkit) and [cudNN](https://developer.nvidia.com/cudnn) installed. This has only been tested up to CUDA v9.2.
 
-If you like to use SegNet with C++, the test_segmentation.cpp might be helpful. 
-https://github.com/alexgkendall/SegNet-Tutorial/blob/master/Scripts/test_segmentation.cpp
+To install all depedencies, follow the instructions located at the top of the [Ubuntu 16.04 Installation Guide](https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-Installation-Guide). This installation guide goes on to discuss installation using the Makefile, which is recommended for Python users.
 
-## News
+### Makefile
 
-* If SegNet is too slow for you, try out the [ENet](https://github.com/TimoSaemann/ENet) in Caffe. It's much faster! (May the 30th, 2017)
+Follow the remaining instructions from the [Ubuntu 16.04 Installation Guide](https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-Installation-Guide).
 
-* Speed up SegNet by merging batch normalization and convolutional layer with BN-absorber.py in the script folder. (May the 12th, 2017)
-
-* cuDNN v.6 has been released. I have tested it using Titan X Pascal. It doesn't bring any noticeable improvements for SegNet. For that reason I will not update the repository to cuDNN6.
+Some of the necessary changes to the Makefile have already been made, however, the above guide does provide a good reference for installation dependencies and build steps.
 
 ## Publications
 
@@ -31,7 +28,6 @@ Alex Kendall, Vijay Badrinarayanan and Roberto Cipolla "Bayesian SegNet: Model U
 
 http://arxiv.org/abs/1511.00561
 Vijay Badrinarayanan, Alex Kendall and Roberto Cipolla "SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation." arXiv preprint arXiv:1511.00561, 2015. 
-
 
 ## License
 
